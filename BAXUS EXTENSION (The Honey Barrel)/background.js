@@ -159,9 +159,11 @@ function fetchAndCompareWithBaxus(scrapedProduct, tabId) {
  */
 function compareProducts(scrapedProduct, baxusProducts, tabId) {
   // Clean product name for comparison
+
+  // Remove Unwanted words, we can directly add new words and characters here to filter ou the name, increases precision
   const removeWords = ["Buy", "buy", "BUY", "Sell", "sell", "Buy/Sell", 
                       "BUY/SELL", "SELL", "750ml", '-', 'online', 
-                      "Online", "/", "lot", "Lot"];
+                      "Online", "/", "lot", "Lot","Import","full","Full","Proof","Heavy","heavy"];
 
   removeWords.forEach(word => {
     // Remove numeric noise
@@ -194,10 +196,12 @@ function compareProducts(scrapedProduct, baxusProducts, tabId) {
       highestScore = score;
       bestMatch = product;
     }
+    
   });
-
+    
   // Handle match results
-  if (bestMatch && highestScore >= 0.45) {
+  if (bestMatch && highestScore >= 0.42) {
+
     // Calculate discount information
     const discount = scrapedProduct.price - bestMatch.price;
     bestMatch.discount = discount > 0 ? discount.toFixed(2) : null;
