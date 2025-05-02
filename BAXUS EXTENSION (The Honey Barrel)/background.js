@@ -9,6 +9,7 @@ const stringSimilarity = (() => {
    * @returns {number} Similarity score between 0 and 1
    */
   function compareTwoStrings(first, second) {
+
     // Normalize strings by removing whitespace
     first = first.replace(/\s+/g, "");
     second = second.replace(/\s+/g, "");
@@ -74,7 +75,7 @@ function detectCurrency(priceStr, currency) {
 async function convertToUSD(amount, currency) {
   if (currency === 'USD') return amount;
   try {
-    const res = await fetch(`https://api.frankfurter.app/latest?from=${currency}&to=USD`);
+    const res = await fetch(`https://api.frankfurter.app/latest?from=${currency}&to=USD`);//api to convert all currencies to USD
     const data = await res.json();
     return amount * data.rates.USD;
   } catch (err) {
@@ -124,7 +125,7 @@ chrome.runtime.onMessage.addListener(async (request, sender) => {
   }
 });
 
-// --- BAXUS INTEGRATION ---
+// --- BAXUS API INTEGRATION ---
 
 /**
  * Fetches Baxus product listings and initiates comparison
@@ -148,6 +149,7 @@ function fetchAndCompareWithBaxus(scrapedProduct, tabId) {
     })
     .catch(err => console.error('Baxus API error:', err));
 }
+
 
 // --- PRODUCT COMPARISON LOGIC ---
 
