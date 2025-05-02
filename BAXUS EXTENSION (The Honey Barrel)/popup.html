@@ -6,30 +6,30 @@
   <title>Product Match</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cal+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       /* Color system */
-      --color-primary: #1a237e;
-      --color-primary-dark: #0d1642;
+      --color-primary: #FFD700;
+      --color-primary-dark: #E6C200;
       --color-secondary: #34C759;
       --color-accent: #FFD700;
       --color-accent-dark: #E6C200;
       --color-error: #FF3B30;
       --color-warning: #FF9500;
-      --color-background: #0a0c1d;
-      --color-surface: #141832;
-      --color-text-primary: #FFFFFF;
-      --color-text-secondary: #B8B8B8;
-      --color-text-tertiary: #808080;
-      --color-border: #2a2f4a;
+      --color-background: #F5D000;
+      --color-surface: #FFE55C;
+      --color-text-primary: #2C2810;
+      --color-text-secondary: #3D3415;
+      --color-text-tertiary: #4A4019;
+      --color-border: #E6C200;
       
-      /* Spacing system (8px) */
-      --space-1: 4px;
-      --space-2: 8px;
-      --space-3: 16px;
-      --space-4: 24px;
-      --space-5: 32px;
+      /* Spacing system (8px) - slightly reduced */
+      --space-1: 3px;
+      --space-2: 6px;
+      --space-3: 12px;
+      --space-4: 18px;
+      --space-5: 24px;
       
       /* Animation */
       --transition-fast: 150ms ease;
@@ -37,9 +37,9 @@
       --transition-slow: 350ms ease;
       
       /* Elevation */
-      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
-      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.25), 0 1px 3px rgba(0, 0, 0, 0.2);
-      --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.2);
+      --shadow-sm: 0 1px 2px rgba(255, 215, 0, 0.2);
+      --shadow-md: 0 3px 5px rgba(255, 215, 0, 0.25), 0 1px 2px rgba(255, 215, 0, 0.2);
+      --shadow-lg: 0 8px 12px rgba(255, 215, 0, 0.3), 0 3px 5px rgba(255, 215, 0, 0.2);
     }
     
     * {
@@ -49,40 +49,44 @@
     }
     
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      background: linear-gradient(135deg, var(--color-background) 0%, var(--color-primary-dark) 100%);
+      font-family: 'Cal Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--color-background);
       color: var(--color-text-primary);
       line-height: 1.5;
       padding: var(--space-3);
-      width: 320px;
+      width: 400px;
+      height: 600px;
+      overflow-y: auto;
       overflow-x: hidden;
-      font-size: 14px;
+      font-size: 12px;
     }
     
     h2 {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: var(--space-2);
+      font-family: 'Cal Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: var(--space-1);
       color: var(--color-text-primary);
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
     }
     
     h3 {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 500;
-      margin-bottom: var(--space-2);
+      margin-bottom: var(--space-1);
       color: var(--color-text-secondary);
     }
     
     p {
-      margin-bottom: var(--space-2);
+      margin-bottom: var(--space-1);
       color: var(--color-text-secondary);
+      font-size: 12px;
     }
     
     img {
       max-width: 100%;
       height: auto;
-      border-radius: var(--space-2);
+      border-radius: var(--space-1);
     }
     
     .container {
@@ -95,12 +99,12 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-bottom: var(--space-3);
-      padding: var(--space-2);
-      border-radius: var(--space-2);
-      background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-primary) 100%);
+      margin-bottom: var(--space-2);
+      padding: var(--space-3);
+      border-radius: var(--space-1);
+      background: var(--color-surface);
       border: 2px solid var(--color-accent);
-      box-shadow: var(--shadow-lg);
+      box-shadow: var(--shadow-md);
       transition: transform var(--transition-normal);
     }
     
@@ -109,43 +113,45 @@
     }
     
     .logo-container img {
-      max-height: 50px;
-      object-fit: contain;
+      height: 50px;
+      width: auto;
+      object-fit: cover;
     }
     
     .product-card {
-      background: linear-gradient(135deg, var(--color-surface) 0%, rgba(26, 35, 126, 0.4) 100%);
-      border-radius: var(--space-2);
-      padding: var(--space-3);
-      margin-bottom: var(--space-3);
-      box-shadow: var(--shadow-lg);
-      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      border-radius: var(--space-1);
+      padding: var(--space-4);
+      margin-bottom: var(--space-2);
+      box-shadow: var(--shadow-md);
+      border: 2px solid var(--color-border);
       animation: fadeIn 0.3s ease-in-out;
-      backdrop-filter: blur(10px);
     }
     
     .product-info {
-      margin-bottom: var(--space-3);
+      margin-bottom: var(--space-2);
     }
     
     .product-info p {
       display: flex;
       justify-content: space-between;
-      border-bottom: 1px solid var(--color-border);
+      border-bottom: 2px solid var(--color-border);
       padding-bottom: var(--space-1);
-      margin-bottom: var(--space-2);
+      margin-bottom: var(--space-1);
+      font-size: 14px;
     }
     
     .product-info span {
       font-weight: 500;
       color: var(--color-text-primary);
+      font-size: 16px;
     }
     
     .product-image-container {
-      margin-bottom: var(--space-3);
-      border-radius: var(--space-2);
+      margin-top: var(--space-3);
+      border-radius: var(--space-1);
       overflow: hidden;
-      box-shadow: var(--shadow-lg);
+      box-shadow: var(--shadow-md);
     }
     
     .product-image-container img {
@@ -164,10 +170,10 @@
       color: white;
       font-weight: 600;
       font-size: 14px;
-      padding: var(--space-2) var(--space-3);
+      padding: var(--space-1) var(--space-3);
       border-radius: 16px;
-      margin: 0 auto var(--space-3);
-      box-shadow: var(--shadow-md);
+      margin: var(--space-2) auto;
+      box-shadow: var(--shadow-sm);
       letter-spacing: 0.5px;
       text-align: center;
       width: fit-content;
@@ -179,45 +185,48 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: var(--space-4) var(--space-3);
+      padding: var(--space-4);
       animation: fadeIn 0.3s ease-in-out;
-      background: linear-gradient(135deg, var(--color-surface) 0%, rgba(26, 35, 126, 0.4) 100%);
-      border-radius: var(--space-2);
-      box-shadow: var(--shadow-lg);
-      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      border-radius: var(--space-1);
+      box-shadow: var(--shadow-md);
+      border: 2px solid var(--color-border);
     }
     
     .empty-state img {
-      width: 60px;
-      height: 60px;
-      margin-bottom: var(--space-3);
+      width: 50px;
+      height: 50px;
+      margin-bottom: var(--space-2);
       opacity: 0.7;
-      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
     }
     
     .button {
       width: 100%;
       padding: var(--space-2) var(--space-3);
-      border: none;
-      border-radius: var(--space-2);
-      font-family: inherit;
-      font-weight: 500;
-      font-size: 14px;
+      border-radius: var(--space-1);
+      font-family: 'Cal Sans', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
       cursor: pointer;
       transition: all var(--transition-fast);
       text-align: center;
+      border: 2px solid #B8860B;
+      background-color: #F4C430;
+      color: #000000;
+      margin-bottom: var(--space-3);
     }
     
     .button-primary {
-      background-color: var(--color-primary);
-      color: white;
-      box-shadow: var(--shadow-md);
+      background-color: #F4C430;
+      color: #000000;
+      box-shadow: var(--shadow-sm);
     }
     
     .button-primary:hover {
-      background-color: var(--color-primary-dark);
+      background-color: #EDB828;
       transform: translateY(-1px);
-      box-shadow: var(--shadow-lg);
+      box-shadow: var(--shadow-md);
     }
     
     .button-primary:active {
@@ -226,19 +235,20 @@
     }
     
     .button-secondary {
-      background-color: var(--color-surface);
-      color: var(--color-text-primary);
-      border: 1px solid var(--color-border);
+      background-color: #F4C430;
+      color: #000000;
+      border: 2px solid #B8860B;
     }
     
     .button-secondary:hover {
-      background-color: var(--color-primary);
+      background-color: #EDB828;
+      color: #000000;
     }
     
     @keyframes fadeIn {
       from {
         opacity: 0;
-        transform: translateY(var(--space-2));
+        transform: translateY(var(--space-1));
       }
       to {
         opacity: 1;
@@ -251,7 +261,7 @@
         box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4);
       }
       70% {
-        box-shadow: 0 0 0 6px rgba(255, 215, 0, 0);
+        box-shadow: 0 0 0 4px rgba(255, 215, 0, 0);
       }
       100% {
         box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
@@ -278,12 +288,12 @@
           <p>Price: <span id="productPrice"></span></p>
         </div>
         
+        <p id="productDiscount" class="discount-badge"></p>
+        <button id="viewButton" class="button button-primary">View Product</button>
+        
         <div class="product-image-container">
           <img id="productImage" src="" alt="Product Image" />
         </div>
-        
-        <p id="productDiscount" class="discount-badge"></p>
-        <button id="viewButton" class="button button-primary">View Product</button>
       </div>
     </div>
 
@@ -291,7 +301,7 @@
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR66HEajJJlHGoBcLrUxvYjczp7dU9HRtocHA&s" alt="No Match Icon">
       <h3>No Match Found</h3>
       <p>We couldn't find a matching product at this time.</p>
-      <button id="retryButton" class="button button-primary">Try Again</button>
+      <button id="retryButton" class="button button-secondary">Try Again</button>
     </div>
   </div>
 
