@@ -6,7 +6,7 @@ const stringSimilarity = (() => {
    * Compares two strings using bigram comparison method
    * @param {string} first - First string to compare
    * @param {string} second - Second string to compare
-   * @returns {number} Similarity score between 0 and 1
+   * @returns {number} Similarity score between 0 and 1 --> A VALUE THAT IS MORE CLOSE TO 1 IS THE MOST SIMILAR ONE MATCHING
    */
   function compareTwoStrings(first, second) {
 
@@ -34,7 +34,7 @@ const stringSimilarity = (() => {
       }
     }
 
-    // Return similarity score
+    // Return similarity score 
     return (2.0 * intersection) / (first.length + second.length - 2);
   }
 
@@ -202,7 +202,12 @@ function compareProducts(scrapedProduct, baxusProducts, tabId) {
   });
     
   // Handle match results
+  
   if (bestMatch && highestScore >= 0.42) {
+    // HERE THE VALUE 0.42 IS THE THRESHOLD VALUE TO FILTER OUT UNWATED MATCHES
+    // WE CAN EVEN TWEAK THIS VALUE HIGHER IF WE WANT MORE PRECISE PRODUCT, but i found 0.42 good after searching few websites, works best.
+    // HENCE RECOMMENDED THRESHOLD VALUE IS 0.42
+    
 
     // Calculate discount information
     const discount = scrapedProduct.price - bestMatch.price;
