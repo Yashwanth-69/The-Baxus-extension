@@ -26,12 +26,12 @@ The Honey Barrel is an AI-powered browser extension that helps shoppers find mat
 
 2. **Open Chrome extensions in your browser**
     - Navigate to chrome://extensions/
-    - Tuen on Developer mode
+    - Turn on Developer mode
 
 3. **Load the Extension**
     - Click Load unpacked button
-    - Select the cloned directory ie choose only -> /BAXUS EXTENSION (The Honey Barrel)/
-    - click open folder and the extension will be loaded
+    - Select the `/BAXUS EXTENSION (The Honey Barrel)` directory
+    - Click open folder and the extension will be loaded
 
 4. **Pin the Extension (Optional but recommended)**
     - Click the puzzle icon in Chrome's toolbar
