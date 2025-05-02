@@ -57,6 +57,7 @@ A smart browser extension that helps you find matching products on Baxus with re
 - #### No matches found?
 
   - Try refreshing the product page
+  - Wait until the entire website loads
   - Ensure product has valid pricing information
   - Check network connection
 
