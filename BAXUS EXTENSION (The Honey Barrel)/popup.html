@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Match</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Color system */
+      --color-primary: #1a237e;
+      --color-primary-dark: #0d1642;
+      --color-secondary: #34C759;
+      --color-accent: #FFD700;
+      --color-accent-dark: #E6C200;
+      --color-error: #FF3B30;
+      --color-warning: #FF9500;
+      --color-background: #0a0c1d;
+      --color-surface: #141832;
+      --color-text-primary: #FFFFFF;
+      --color-text-secondary: #B8B8B8;
+      --color-text-tertiary: #808080;
+      --color-border: #2a2f4a;
+      
+      /* Spacing system (8px) */
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 16px;
+      --space-4: 24px;
+      --space-5: 32px;
+      
+      /* Animation */
+      --transition-fast: 150ms ease;
+      --transition-normal: 250ms ease;
+      --transition-slow: 350ms ease;
+      
+      /* Elevation */
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.25), 0 1px 3px rgba(0, 0, 0, 0.2);
+      --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(135deg, var(--color-background) 0%, var(--color-primary-dark) 100%);
+      color: var(--color-text-primary);
+      line-height: 1.5;
+      padding: var(--space-3);
+      width: 320px;
+      overflow-x: hidden;
+      font-size: 14px;
+    }
+    
+    h2 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: var(--space-2);
+      color: var(--color-text-primary);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+    
+    h3 {
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: var(--space-2);
+      color: var(--color-text-secondary);
+    }
+    
+    p {
+      margin-bottom: var(--space-2);
+      color: var(--color-text-secondary);
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--space-2);
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+    
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: var(--space-3);
+      padding: var(--space-2);
+      border-radius: var(--space-2);
+      background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-primary) 100%);
+      border: 2px solid var(--color-accent);
+      box-shadow: var(--shadow-lg);
+      transition: transform var(--transition-normal);
+    }
+    
+    .logo-container:hover {
+      transform: scale(1.02);
+    }
+    
+    .logo-container img {
+      max-height: 50px;
+      object-fit: contain;
+    }
+    
+    .product-card {
+      background: linear-gradient(135deg, var(--color-surface) 0%, rgba(26, 35, 126, 0.4) 100%);
+      border-radius: var(--space-2);
+      padding: var(--space-3);
+      margin-bottom: var(--space-3);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--color-border);
+      animation: fadeIn 0.3s ease-in-out;
+      backdrop-filter: blur(10px);
+    }
+    
+    .product-info {
+      margin-bottom: var(--space-3);
+    }
+    
+    .product-info p {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: var(--space-1);
+      margin-bottom: var(--space-2);
+    }
+    
+    .product-info span {
+      font-weight: 500;
+      color: var(--color-text-primary);
+    }
+    
+    .product-image-container {
+      margin-bottom: var(--space-3);
+      border-radius: var(--space-2);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .product-image-container img {
+      width: 100%;
+      height: auto;
+      transition: transform var(--transition-normal);
+    }
+    
+    .product-image-container img:hover {
+      transform: scale(1.03);
+    }
+    
+    .discount-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--color-secondary) 0%, #2a9d47 100%);
+      color: white;
+      font-weight: 600;
+      font-size: 12px;
+      padding: var(--space-1) var(--space-2);
+      border-radius: 12px;
+      margin-bottom: var(--space-2);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .empty-state {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--space-4) var(--space-3);
+      animation: fadeIn 0.3s ease-in-out;
+      background: linear-gradient(135deg, var(--color-surface) 0%, rgba(26, 35, 126, 0.4) 100%);
+      border-radius: var(--space-2);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--color-border);
+    }
+    
+    .empty-state img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: var(--space-3);
+      opacity: 0.7;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    }
+    
+    .button {
+      width: 100%;
+      padding: var(--space-2) var(--space-3);
+      border: none;
+      border-radius: var(--space-2);
+      font-family: inherit;
+      font-weight: 500;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      text-align: center;
+    }
+    
+    .button-primary {
+      background-color: var(--color-primary);
+      color: white;
+      box-shadow: var(--shadow-md);
+    }
+    
+    .button-primary:hover {
+      background-color: var(--color-primary-dark);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .button-primary:active {
+      transform: translateY(0);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .button-secondary {
+      background-color: var(--color-surface);
+      color: var(--color-text-primary);
+      border: 1px solid var(--color-border);
+    }
+    
+    .button-secondary:hover {
+      background-color: var(--color-primary);
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(var(--space-2));
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4);
+      }
+      70% {
+        box-shadow: 0 0 0 6px rgba(255, 215, 0, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
+      }
+    }
+    
+    .pulse-animation {
+      animation: pulse 2s infinite;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="matchFound" style="display: none;">
+      <div class="logo-container pulse-animation">
+        <img src="https://mms.businesswire.com/media/20240501513935/en/2115090/22/BAXUS.jpg" alt="Baxus Logo">
+      </div>
+      
+      <div class="product-card">
+        <h2 id="productName"></h2>
+        
+        <div class="product-info">
+          <p>Type: <span id="productType"></span></p>
+          <p>Price: <span id="productPrice"></span></p>
+        </div>
+        
+        <div class="product-image-container">
+          <img id="productImage" src="" alt="Product Image" />
+        </div>
+        
+        <p id="productDiscount" class="discount-badge"></p>
+        <button id="viewButton" class="button button-primary">View Product</button>
+      </div>
+    </div>
+
+    <div id="noMatch" class="empty-state">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR66HEajJJlHGoBcLrUxvYjczp7dU9HRtocHA&s" alt="No Match Icon">
+      <h3>No Match Found</h3>
+      <p>We couldn't find a matching product at this time.</p>
+      <button id="retryButton" class="button button-primary">Try Again</button>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

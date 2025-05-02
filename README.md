@@ -1,0 +1,2 @@
+# The-Baxus-extension
+The Honey Barrel is an AI-powered browser extension that helps shoppers find matching products on Baxus with precision. It automatically compares prices in real-time using live exchange rates, detects hidden discounts, and verifies matches through visual analysis. With universal e-commerce compatibility, it delivers instant price intelligence with one click. Never overpay again – shop smarter with confidence-powered product matching.
