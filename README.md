@@ -14,17 +14,18 @@ A smart browser extension that helps you find matching products on Baxus with re
 - ⚡ **One-Click Access** - Direct links to Baxus product pages
 - 🌐 **Universal Compatibility** - Works on most e-commerce websites
 
-## 📦 Installation
 
-### Requirementsme
+### Requirements
 - Google Chrome (version 92 or newer)
-- Git (optional, for cloning repository)
+- Git (for cloning repository)
 
 ### Step-by-Step Setup
 
-1. **Get the Extension Files**
+1. **Get the Extension Files (INSTALLATION)**
+- Clone the Repo or Download the zip file
    ```bash
    git clone https://github.com/Yashwanth-69/The-Baxus-extension.git
+- You can refer to this video for installation [Installation of the extension Video](https://youtu.be/fxE6z9dhen8)
 
 2. **Open Chrome extensions in your browser**
     - Navigate to chrome://extensions/
@@ -65,8 +66,10 @@ A smart browser extension that helps you find matching products on Baxus with re
 - [Website 3](https://caskcartel.com/products/nikka-gold-gold-kabuto-samurai-bottle-whisky)
 - [Website 4](https://www.wine-searcher.com/find/spring+bank+local+barley+sixteen+old+single+malt+scotch+whisky+campbeltown+scotland/1999?Xcurrencycode=USD&Xsavecurrency=Y)
 - [Website 5](https://www.wildturkeybourbon.com/en-us/products/wild-turkey-101-8-year-old-bourbon/)
+- [Website 6](https://www.musthavemalts.com/product/springbank-16-years-old-local-barley/)
 
-### Here are some videos links that shows this extension works
--[Extension Working Videos]() 
+### Here are some videos links that shows the installation and working of this extension
+-[Extension Working Video](https://youtu.be/iM-1kSHzoBw) 
+-[Installation of the extension Video](https://youtu.be/fxE6z9dhen8)
 
 
