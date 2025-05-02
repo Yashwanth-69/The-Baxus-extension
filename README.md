@@ -67,7 +67,7 @@ The Honey Barrel is an AI-powered browser extension that helps shoppers find mat
 - [Website 6](https://www.musthavemalts.com/product/springbank-16-years-old-local-barley/)
 
 ## Here is the video that shows the working of this Extension
-- ### [Extension Working Video](https://youtu.be/iM-1kSHzoBw) 
+- ### [Extension Working Video](https://youtu.be/TzS8hcqhndI) 
 
 ## IMPORTANT NOTE:
 
