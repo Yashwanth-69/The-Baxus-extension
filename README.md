@@ -6,6 +6,7 @@ The Honey Barrel is an AI-powered browser extension that helps shoppers find mat
 
 - 🔍 **Smart Product Matching** - Advanced similarity detection for accurate matches
 - 💰 **Price Comparison** - Instant price comparisons with Baxus listings
+- 💵 **Real time Price Converter** - Inbuilt Price converter for multiple currrencies 
 - 🚨 **Discount Alerts** - Get notified about significant discounts
 - 📸 **Product Previews** - Visual matching with product images
 - ⚡ **One-Click Access** - Direct links to Baxus product pages
